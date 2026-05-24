@@ -1,0 +1,64 @@
+{
+  "manifest_version": 3,
+  "name": "lowkeystalker",
+  "version": "1.0",
+  "description": "Intercepts and displays Tinder profile details directly on the page.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "lowkeystalker@yourdomain.com",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": [
+    "scripting",
+    "downloads"
+  ],
+  "icons": {
+    "48": "icon.svg",
+    "96": "icon.svg",
+    "128": "icon.svg"
+  },
+  "action": {
+    "default_icon": "icon.svg"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "host_permissions": [
+    "*://*.tinder.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.tinder.com/*",
+        "*://tinder.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "interceptor.js"
+      ],
+      "matches": [
+        "*://*.tinder.com/*",
+        "*://tinder.com/*"
+      ]
+    }
+  ]
+}
