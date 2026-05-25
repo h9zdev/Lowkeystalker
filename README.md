@@ -29,7 +29,7 @@
 
 </div>
 
----
+
 
 <br/>
 
@@ -37,7 +37,7 @@
 
 <br/>
 
----
+
 
 ## ◈ &nbsp;Features
 
@@ -50,10 +50,11 @@
 | 💾 | **Auto-Download** | Profile JSON + full-res images saved automatically to your `Downloads` folder |
 | 📁 | **Custom Paths** | Set your own subfolder name from the overlay — no config files needed |
 | 🔁 | **Auto-Fetch** | Re-polls recommendations every 60 seconds so you never miss a profile |
+| 🖥️ | **Local Viewer** | Flask-based companion app to browse all captured profiles with carousel UI |
 
 <br/>
 
----
+
 
 ## ◈ &nbsp;Installation
 
@@ -94,7 +95,7 @@ Click **Add to Firefox** — done.
 
 <br/>
 
----
+
 
 ## ◈ &nbsp;How It Works
 
@@ -115,7 +116,7 @@ Click **Add to Firefox** — done.
 
 <br/>
 
----
+
 
 ## ◈ &nbsp;Usage
 
@@ -133,22 +134,41 @@ Click **Add to Firefox** — done.
 **4 — Check Your Downloads**
 > Files land in:
 > ```
-> ~/Downloads/
-> └── Tinder Data/
->     └── <profile_id>/
->         ├── profile.json
->         └── images/
->             ├── 01.jpg
->             ├── 02.jpg
->             └── ...
+> ~/Downloads/Tinder Data/
+> └── <name>_<profile_id>/
+>     ├── <profile_id>.json      ← full profile payload
+>     └── images/
+>         ├── 01.jpg
+>         ├── 02.jpg
+>         └── ...
 > ```
 
-**5 — Customize the Folder**
+**5 — View Downloaded Profiles**
+> Use the companion viewer script → **[tinder_data_viewr.py](https://gist.github.com/h9zdev/9ccb7d9999ddca2ebbc397ee2e133626)**
+> ```bash
+> # 1. Download the viewer
+> curl -O https://gist.githubusercontent.com/h9zdev/9ccb7d9999ddca2ebbc397ee2e133626/raw/tinder_data_viewr.py
+>
+> # 2. Open the file and set your data path (line 6)
+> DATA_DIR = "/home/<you>/Downloads/Tinder Data"      # Linux / macOS
+> DATA_DIR = r"C:\Users\<you>\Downloads\Tinder Data"  # Windows
+>
+> # 3. Install dependency & run
+> pip install flask
+> python tinder_data_viewr.py
+>
+> # 4. Open in your browser
+> http://127.0.0.1:5050
+> ```
+> Renders a searchable sidebar of every captured profile — photo carousel, bio, descriptors, and prompts.
+
+**6 — Customize the Folder**
 > Type a new folder name in the overlay's input field — takes effect immediately.
+> Make sure `DATA_DIR` in the viewer script matches your chosen folder name.
 
 <br/>
 
----
+
 
 ## ◈ &nbsp;Project Structure
 
@@ -166,7 +186,6 @@ lowkeystalker/
 
 <br/>
 
----
 
 ## ◈ &nbsp;Disclaimer
 
@@ -180,7 +199,7 @@ lowkeystalker/
 
 <br/>
 
----
+
 
 ## ◈ &nbsp;License
 
@@ -190,7 +209,7 @@ Released under the **[MIT License](LICENSE)** — use it, fork it, study it.
 
 <br/>
 
----
+
 
 <div align="center">
 
