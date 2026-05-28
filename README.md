@@ -37,7 +37,10 @@
 
 <br/>
 
+> [!TIP]
+> - 🚀 **Add Firefox Addon or Extension ** [[ADD NOW]](https://addons.mozilla.org/en-GB/firefox/addon/lowkeystalker/)
 
+<br/>
 
 ## ◈ &nbsp;Features
 
